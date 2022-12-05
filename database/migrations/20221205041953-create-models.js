@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("app_user", {
+    await queryInterface.createTable("users", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -35,7 +35,7 @@ module.exports = {
       },
     });
 
-    await queryInterface.createTable("character", {
+    await queryInterface.createTable("characters", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -53,7 +53,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "app_user",
+          model: "users",
           key: "id",
         },
       },
@@ -67,7 +67,7 @@ module.exports = {
       },
     });
 
-    await queryInterface.createTable("questionaire", {
+    await queryInterface.createTable("questionaires", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -92,7 +92,7 @@ module.exports = {
       },
     });
 
-    await queryInterface.createTable("question", {
+    await queryInterface.createTable("questions", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -103,7 +103,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "questionaire",
+          model: "questionaires",
           key: "id",
         },
       },
@@ -121,7 +121,7 @@ module.exports = {
       },
     });
 
-    await queryInterface.createTable("answer", {
+    await queryInterface.createTable("answers", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -132,7 +132,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "question",
+          model: "questions",
           key: "id",
         },
       },
@@ -140,7 +140,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "character",
+          model: "characters",
           key: "id",
         },
       },
