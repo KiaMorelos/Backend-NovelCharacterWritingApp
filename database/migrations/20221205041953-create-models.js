@@ -82,14 +82,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      created_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updated_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
     });
 
     await queryInterface.createTable("questions", {
@@ -110,14 +102,6 @@ module.exports = {
       question: {
         type: Sequelize.STRING,
         allowNull: false,
-      },
-      created_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updated_at: {
-        allowNull: false,
-        type: Sequelize.DATE,
       },
     });
 

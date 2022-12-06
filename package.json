@@ -7,12 +7,14 @@
     "create-model": "npx sequelize-cli model:generate --name",
     "migrate": "npx sequelize-cli db:migrate",
     "revert-migration": "npx sequelize-cli db:migrate:undo",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
@@ -20,5 +22,8 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.26.0",
     "sequelize-cli": "^6.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
