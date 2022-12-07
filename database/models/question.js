@@ -8,14 +8,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.questionaireId = this.belongsTo(models.Questionaire, {
-        foreignKey: "questionarie_id",
+      this.questionaire_id = this.belongsTo(models.Questionaire, {
+        foreignKey: "questionaire_id",
       });
     }
   }
   Question.init(
     {
-      questionaireId: {
+      questionaire_id: {
         type: DataTypes.INTEGER,
         references: {
           model: "Questionaire",
@@ -27,6 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Question",
+      tableName: "questions",
+      timestamps: false,
     }
   );
   return Question;
