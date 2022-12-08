@@ -1,221 +1,139 @@
-id,questionaire_id,question
-1,1,What is your idea of perfect happiness?
-2,1,What is your greatest fear?
-3,1,What is the trait you most deplore in yourself?
-4,1,What is the trait you most deplore in others?
-5,1,Which living person do you most admire?
-6,1,What is your greatest extravagance?
-7,1,What is your current state of mind?
-8,1,What do you consider the most overrated virtue?
-9,1,On what occasion do you lie?
-10,1,What do you most dislike about your appearance?
-11,1,Which living person do you most despise?
-12,1,What is the quality you most like in a man?
-13,1,What is the quality you most like in a woman?
-14,1,Which words or phrases do you most overuse?
-15,1,What or who is the greatest love of your life?
-16,1,When and where were you happiest?
-17,1,Which talent would you most like to have?
-18,1,"If you could change one thing about yourself, what would it be?"
-19,1,What do you consider your greatest achievement?
-20,1,"If you were to die and come back as a person or a thing, what would it be?"
-21,1,Where would you most like to live?
-22,1,What is your most treasured possession?
-23,1,What do you regard as the lowest depth of misery?
-24,1,What is your favorite occupation?
-25,1,What is your most marked characteristic?
-26,1,What do you most value in your friends?
-27,1,Who are your favorite writers?
-28,1,Who is your hero of fiction?
-29,1,Which historical figure do you most identify with?
-30,1,Who are your heroes in real life?
-31,1,What are your favorite names?
-32,1,What is it that you most dislike?
-33,1,What is your greatest regret?
-34,1,How would you like to die?
-35,1,What is your motto?
-36,2,What is your favorite word?
-37,2,What is your least favorite word?
-38,2,What is your favorite drug?
-39,2,What sound or noise do you love?
-40,2,What sound or noise do you hate?
-41,2,What is your favorite curse word?
-42,2,Who would you like to see on a new banknote?
-43,2,What profession other than your own would you not like to attempt?
-44,2,"If you were reincarnated as some other plant or animal, what would it be?"
-45,2,"If Heaven exists, what would you like to hear God say when you arrive at the Pearly Gates?"
-46,3,What is your favorite word?
-47,3,What is your least favorite word?
-48,3,"What turns you on creatively, spiritually or emotionally?"
-49,3,What turns you off?
-50,3,What is your favorite curse word?
-51,3,What sound or noise do you love?
-52,3,What sound or noise do you hate?
-53,3,What profession other than your own would you like to attempt?
-54,3,What profession would you not like to do?
-55,3,"If Heaven exists, what would you like to hear God say when you arrive at the Pearly Gates?"
-56,4,Full name and aliases?
-57,4,Addressespast and present with approximate dates?
-58,4,Gender?
-59,4,Race and culture?
-60,4,Citizenship?
-61,4,National origin?
-62,4,Agewith date of birth?
-63,4,Place of birth?
-64,4,Occupationall known past and present jobs?
-65,4,"Ever in the military? If yes, where stationed? What occupation?"
-66,4,Parents names?
-67,4,"Parents living ? If yes, where ?"
-68,4,Where did character attend high school?
-69,4,College?
-70,4,College graduate?
-71,4,Major in college?
-72,4,Involved in athletics?
-73,4,"Any brothers or sisters? Names, addresses, occupations?"
-74,4,"Other relatives? Names, addresses, occupations?"
-75,4,Marital status?
-76,4,Married more than once?
-77,4,Spouses full name?
-78,4,Children? Names and ages?
-79,4,Religious? Which faith?
-80,4,Pets ?
-81,4,Height:
-82,4,weight:
-83,4,build:
-84,4,"eyes (color, protruding, crossed, small, large, round, etc):"
-85,4,"hair (color, wears part, curly, wavy, bald, etc):"
-86,4,"complexion (florid, sallow, ruddy, dark, transparent, pocked, scarred, etc):"
-87,4,visible marks or scars:
-88,4,"head (large, small, shape, inclined forward, or backward):"
-89,4,"forehead (high, low, medium, sloping, bulging, receding):"
-90,4,"eyebrows (slanting up or down, bushy, thin, arched, connected, penciled, faint):"
-91,4,"nose (large, small, pug, hooked, straight, flat, flaring nostrils):"
-92,4,"mustache (color, size, shape):"
-93,4,"mouth(large, small, arched up or down):"
-94,4,"lips (thick, thin, protruding, pouting, harelip, full):"
-95,4,"teeth (size, even, projecting, crowded, yellowed, missing):"
-96,4,"ears (size, close, projecting, missing, misaligned, cauliflower shape):"
-97,4,"chin (size, jutting, receding, square, double chin, cleft):"
-98,4,"face (long, round, square, sunken, high cheeks, bulging cheeks):"
-99,4,"neck (long, short, thick, thin, large adams apple, slender):"
-100,4,"shoulders (sloping, broad, narrow, erect, stooped, uneven):"
-101,4,"stomach (flat, bulging, firm):"
-102,4,"hands (large, small, rough, calloused, long or short fingers, manicured):"
-103,4,"posture (erect, slumping, military bearing, rigid, etc):"
-104,4,"walk (erect, stooped, slow, fast, graceful, limp, long or short strides, etc):"
-105,4,"speech (slow, fast, halting, mumbling, impediment, high or low pitch, sultry):"
-106,4,"characteristics (smacking of lips when eating, clicks false teeth, never smiles, laughs loudly, talks from side of mouth, other mannerisms):"
-107,4,"habits(clean, dirty, smokes, chews gum, obsessively clean):"
-108,4,"dress (neat, slovenly, cheap expensive, sports clothes, grunge, etc):"
-109,4,"health (chronic diseases or disability, deafness, frequent colds):"
-110,4,"what does the character usually carry with them ? (sunglasses, satchel, notebook, lipstick) :"
-111,4,favorite drink:
-112,4,favorite food:
-113,4,favorite color:
-114,4,favorite book:
-115,4,favorite movie:
-116,4,favorite season:
-117,4,favorite weather:
-118,4,hobby/skills:
-119,4,strong dislikes:
-120,4,"biggest fear, why ?"
-121,4,Long-term goal?
-122,4,Short-term goal?
-123,4,Most significant spiritual experience?
-124,4,Relationship with father?
-125,4,Relationship with mother?
-126,4,Relationship with siblings?
-127,4,Regrets?
-128,4,"If character could change one major event in his/her life, what would it be?"
-129,4,Easily angered?
-130,4,Melancholy?
-131,4,Introvert or extrovert?
-132,4,"If character could choose the perfect job, what would it be?"
-133,4,Ideal way to spend an evening?
-134,4,Top priority in characters life ?
-135,4,Most humiliating experience?
-136,4,Most triumphant experience?
-137,4,Type of people most comfortable spending time with?
-138,4,Personality traits most irritating in other people?
-139,4,Addressespast and present with approximate dates?
-140,4,Gender?
-141,4,Race and culture?
-142,4,Citizenship?
-143,4,National origin?
-144,4,Agewith date of birth?
-145,4,Place of birth?
-146,4,Occupationall known past and present jobs?
-147,4,"Ever in the military? If yes, where stationed? What occupation?"
-148,4,Parents names?
-149,4,"Parents living ? If yes, where ?"
-150,4,Where did character attend high school?
-151,4,College?
-152,4,College graduate?
-153,4,Major in college?
-154,4,Involved in athletics?
-155,4,"Any brothers or sisters? Names, addresses, occupations?"
-156,4,"Other relatives? Names, addresses, occupations?"
-157,4,Marital status?
-158,4,Married more than once?
-159,4,Spouses full name?
-160,4,Children? Names and ages?
-161,4,Religious? Which faith?
-162,4,Pets ?
-163,4,Height:
-164,4,weight:
-165,4,build:
-166,4,"eyes (color, protruding, crossed, small, large, round, etc):"
-167,4,"hair (color, wears part, curly, wavy, bald, etc):"
-168,4,"complexion (florid, sallow, ruddy, dark, transparent, pocked, scarred, etc):"
-169,4,visible marks or scars:
-170,4,"head (large, small, shape, inclined forward, or backward):"
-171,4,"forehead (high, low, medium, sloping, bulging, receding):"
-172,4,"eyebrows (slanting up or down, bushy, thin, arched, connected, penciled, faint):"
-173,4,"nose (large, small, pug, hooked, straight, flat, flaring nostrils):"
-174,4,"mustache (color, size, shape):"
-175,4,"mouth(large, small, arched up or down):"
-176,4,"lips (thick, thin, protruding, pouting, harelip, full):"
-177,4,"teeth (size, even, projecting, crowded, yellowed, missing):"
-178,4,"ears (size, close, projecting, missing, misaligned, cauliflower shape):"
-179,4,"chin (size, jutting, receding, square, double chin, cleft):"
-180,4,"face (long, round, square, sunken, high cheeks, bulging cheeks):"
-181,4,"neck (long, short, thick, thin, large adams apple, slender):"
-182,4,"shoulders (sloping, broad, narrow, erect, stooped, uneven):"
-183,4,"stomach (flat, bulging, firm):"
-184,4,"hands (large, small, rough, calloused, long or short fingers, manicured):"
-185,4,"posture (erect, slumping, military bearing, rigid, etc):"
-186,4,"walk (erect, stooped, slow, fast, graceful, limp, long or short strides, etc):"
-187,4,"speech (slow, fast, halting, mumbling, impediment, high or low pitch, sultry):"
-188,4,"characteristics (smacking of lips when eating, clicks false teeth, never smiles, laughs loudly, talks from side of mouth, other mannerisms):"
-189,4,"habits(clean, dirty, smokes, chews gum, obsessively clean):"
-190,4,"dress (neat, slovenly, cheap expensive, sports clothes, grunge, etc):"
-191,4,"health (chronic diseases or disability, deafness, frequent colds):"
-192,4,"what does the character usually carry with them ? (sunglasses, satchel, notebook, lipstick) :"
-193,4,favorite drink:
-194,4,favorite food:
-195,4,favorite color:
-196,4,favorite book:
-197,4,favorite movie:
-198,4,favorite season:
-199,4,favorite weather:
-200,4,hobby/skills:
-201,4,strong dislikes:
-202,4,"biggest fear, why ?"
-203,4,Long-term goal?
-204,4,Short-term goal?
-205,4,Most significant spiritual experience?
-206,4,Relationship with father?
-207,4,Relationship with mother?
-208,4,Relationship with siblings?
-209,4,Regrets?
-210,4,"If character could change one major event in his/her life, what would it be?"
-211,4,Easily angered?
-212,4,Melancholy?
-213,4,Introvert or extrovert?
-214,4,"If character could choose the perfect job, what would it be?"
-215,4,Ideal way to spend an evening?
-216,4,Top priority in characters life ?
-217,4,Most humiliating experience?
-218,4,Most triumphant experience?
-219,4,Type of people most comfortable spending time with?
-220,4,Personality traits most irritating in other people?
+id,questionaire_id,question,question_category
+1,1,What is your idea of perfect happiness?,psychological information
+2,1,What is your greatest fear?,psychological information
+3,1,What is the trait you most deplore in yourself?,psychological information
+4,1,What is the trait you most deplore in others?,psychological information
+5,1,Which living person do you most admire?,psychological information
+6,1,What is your greatest extravagance?,psychological information
+7,1,What is your current state of mind?,psychological information
+8,1,What do you consider the most overrated virtue?,psychological information
+9,1,On what occasion do you lie?,psychological information
+10,1,What do you most dislike about your appearance?,psychological information
+11,1,Which living person do you most despise?,psychological information
+12,1,What is the quality you most like in a man?,psychological information
+13,1,What is the quality you most like in a woman?,psychological information
+14,1,Which words or phrases do you most overuse?,psychological information
+15,1,What or who is the greatest love of your life?,psychological information
+16,1,When and where were you happiest?,psychological information
+17,1,Which talent would you most like to have?,psychological information
+18,1,"If you could change one thing about yourself, what would it be?",psychological information
+19,1,What do you consider your greatest achievement?,psychological information
+20,1,"If you were to die and come back as a person or a thing, what would it be?",psychological information
+21,1,Where would you most like to live?,psychological information
+22,1,What is your most treasured possession?,psychological information
+23,1,What do you regard as the lowest depth of misery?,psychological information
+24,1,What is your favorite occupation?,psychological information
+25,1,What is your most marked characteristic?,psychological information
+26,1,What do you most value in your friends?,psychological information
+27,1,Who are your favorite writers?,psychological information
+28,1,Who is your hero of fiction?,psychological information
+29,1,Which historical figure do you most identify with?,psychological information
+30,1,Who are your heroes in real life?,psychological information
+31,1,What are your favorite names?,psychological information
+32,1,What is it that you most dislike?,psychological information
+33,1,What is your greatest regret?,psychological information
+34,1,How would you like to die?,psychological information
+35,1,What is your motto?,psychological information
+36,2,What is your favorite word?,psychological information
+37,2,What is your least favorite word?,psychological information
+38,2,What is your favorite drug?,psychological information
+39,2,What sound or noise do you love?,psychological information
+40,2,What sound or noise do you hate?,psychological information
+41,2,What is your favorite curse word?,psychological information
+42,2,Who would you like to see on a new banknote?,psychological information
+43,2,What profession other than your own would you not like to attempt?,psychological information
+44,2,"If you were reincarnated as some other plant or animal, what would it be?",psychological information
+45,2,"If Heaven exists, what would you like to hear God say when you arrive at the Pearly Gates?",psychological information
+46,3,What is your favorite word?,psychological information
+47,3,What is your least favorite word?,psychological information
+48,3,"What turns you on creatively, spiritually or emotionally?",psychological information
+49,3,What turns you off?,psychological information
+50,3,What is your favorite curse word?,psychological information
+51,3,What sound or noise do you love?,psychological information
+52,3,What sound or noise do you hate?,psychological information
+53,3,What profession other than your own would you like to attempt?,psychological information
+54,3,What profession would you not like to do?,psychological information
+55,3,"If Heaven exists, what would you like to hear God say when you arrive at the Pearly Gates?",psychological information
+56,4,Full name and aliases?,brief history
+57,4,Addresses past and present with approximate dates?,brief history
+58,4,Gender?,brief history
+59,4,Race and culture?,brief history
+60,4,Citizenship?,brief history
+61,4,National origin?,brief history
+62,4,Agewith date of birth?,brief history
+63,4,Place of birth?,brief history
+64,4,Occupationall known past and present jobs?,brief history
+65,4,"Ever in the military? If yes, where stationed? What occupation?",brief history
+66,4,Parents names?,brief history
+67,4,"Parents living ? If yes, where ?",brief history
+68,4,Where did character attend high school?,brief history
+69,4,College?,brief history
+70,4,College graduate?,brief history
+71,4,Major in college?,brief history
+72,4,Involved in athletics?,brief history
+73,4,"Any brothers or sisters? Names, addresses, occupations?",brief history
+74,4,"Other relatives? Names, addresses, occupations?",brief history
+75,4,Marital status?,brief history
+76,4,Married more than once?,brief history
+77,4,Spouses full name?,brief history
+78,4,Children? Names and ages?,brief history
+79,4,Religious? Which faith?,brief history
+80,4,Pets ?,brief history
+81,4,Height:,physical description and unique characteristics
+82,4,weight:,physical description and unique characteristics
+83,4,build:,physical description and unique characteristics
+84,4,"eyes (color, protruding, crossed, small, large, round, etc):",physical description and unique characteristics
+85,4,"hair (color, wears part, curly, wavy, bald, etc):",physical description and unique characteristics
+86,4,"complexion (florid, sallow, ruddy, dark, transparent, pocked, scarred, etc):",physical description and unique characteristics
+87,4,visible marks or scars:,physical description and unique characteristics
+88,4,"head (large, small, shape, inclined forward, or backward):",physical description and unique characteristics
+89,4,"forehead (high, low, medium, sloping, bulging, receding):",physical description and unique characteristics
+90,4,"eyebrows (slanting up or down, bushy, thin, arched, connected, penciled, faint):",physical description and unique characteristics
+91,4,"nose (large, small, pug, hooked, straight, flat, flaring nostrils):",physical description and unique characteristics
+92,4,"mustache (color, size, shape):",physical description and unique characteristics
+93,4,"mouth(large, small, arched up or down):",physical description and unique characteristics
+94,4,"lips (thick, thin, protruding, pouting, harelip, full):",physical description and unique characteristics
+95,4,"teeth (size, even, projecting, crowded, yellowed, missing):",physical description and unique characteristics
+96,4,"ears (size, close, projecting, missing, misaligned, cauliflower shape):",physical description and unique characteristics
+97,4,"chin (size, jutting, receding, square, double chin, cleft):",physical description and unique characteristics
+98,4,"face (long, round, square, sunken, high cheeks, bulging cheeks):",physical description and unique characteristics
+99,4,"neck (long, short, thick, thin, large adams apple, slender):",physical description and unique characteristics
+100,4,"shoulders (sloping, broad, narrow, erect, stooped, uneven):",physical description and unique characteristics
+101,4,"stomach (flat, bulging, firm):",physical description and unique characteristics
+102,4,"hands (large, small, rough, calloused, long or short fingers, manicured):",physical description and unique characteristics
+103,4,"posture (erect, slumping, military bearing, rigid, etc):",physical description and unique characteristics
+104,4,"walk (erect, stooped, slow, fast, graceful, limp, long or short strides, etc):",physical description and unique characteristics
+105,4,"speech (slow, fast, halting, mumbling, impediment, high or low pitch, sultry):",physical description and unique characteristics
+106,4,"characteristics (smacking of lips when eating, clicks false teeth, never smiles, laughs loudly, talks from side of mouth, other mannerisms):",physical description and unique characteristics
+107,4,"habits(clean, dirty, smokes, chews gum, obsessively clean):",physical description and unique characteristics
+108,4,"dress (neat, slovenly, cheap expensive, sports clothes, grunge, etc):",physical description and unique characteristics
+109,4,"health (chronic diseases or disability, deafness, frequent colds):",physical description and unique characteristics
+110,4,"what does the character usually carry with them ? (sunglasses, satchel, notebook, lipstick) :",physical description and unique characteristics
+111,4,favorite drink:,psychological information
+112,4,favorite food:,psychological information
+113,4,favorite color:,psychological information
+114,4,favorite book:,psychological information
+115,4,favorite movie:,psychological information
+116,4,favorite season:,psychological information
+117,4,favorite weather:,psychological information
+118,4,hobby/skills:,psychological information
+119,4,strong dislikes:,psychological information
+120,4,"biggest fear, why ?",psychological information
+121,4,Long-term goal?,psychological information
+122,4,Short-term goal?,psychological information
+123,4,Most significant spiritual experience?,psychological information
+124,4,Relationship with father?,psychological information
+125,4,Relationship with mother?,psychological information
+126,4,Relationship with siblings?,psychological information
+127,4,Regrets?,psychological information
+128,4,"If character could change one major event in his/her life, what would it be?",psychological information
+129,4,Easily angered?,psychological information
+130,4,Melancholy?,psychological information
+131,4,Introvert or extrovert?,psychological information
+132,4,"If character could choose the perfect job, what would it be?",psychological information
+133,4,Ideal way to spend an evening?,psychological information
+134,4,Top priority in characters life ?,psychological information
+135,4,Most humiliating experience?,psychological information
+136,4,Most triumphant experience?,psychological information
+137,4,Type of people most comfortable spending time with?,psychological information
+138,4,Personality traits most irritating in other people?,psychological information

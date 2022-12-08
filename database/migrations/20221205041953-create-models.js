@@ -103,6 +103,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      question_category: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
     });
 
     await queryInterface.createTable("answers", {

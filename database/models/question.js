@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       question: DataTypes.STRING,
+      question_category: DataTypes.STRING,
     },
     {
       sequelize,
