@@ -1,4 +1,4 @@
-id,questionaire_id,question,question_category
+id,questionaireId,question,questionCategory
 1,1,What is your idea of perfect happiness?,psychological information
 2,1,What is your greatest fear?,psychological information
 3,1,What is the trait you most deplore in yourself?,psychological information

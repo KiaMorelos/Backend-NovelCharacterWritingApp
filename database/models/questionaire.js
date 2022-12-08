@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   Questionaire.init(
     {
       name: DataTypes.STRING,
-      questionaire_type: DataTypes.STRING,
+      questionaireType: DataTypes.STRING,
     },
     {
       sequelize,

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "title": "Root Schema",
+  "type": "object",
+  "default": {},
+  "required": [],
+  "additionalProperties": false,
+  "properties": {
+    "questionaireId": {
+      "title": "questionaireId Schema",
+      "type": "integer",
+      "mininum": 0,
+      "examples": [1]
+    },
+    "questionCategory": {
+      "title": "The questionCategory Schema",
+      "type": "string",
+      "default": "",
+      "minLength": 1,
+      "examples": ["brief history"]
+    }
+  },
+  "examples": [
+    {
+      "questionId": 1,
+      "questionCategory": "brief history"
+    }
+  ]
+}

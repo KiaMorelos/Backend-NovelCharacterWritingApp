@@ -7,22 +7,22 @@ module.exports = {
       {
         id: 1,
         name: "Marcel Proust",
-        questionaire_type: "character analysis",
+        questionaireType: "character analysis",
       },
       {
         id: 2,
         name: "Bernard Pivot",
-        questionaire_type: "character analysis",
+        questionaireType: "character analysis",
       },
       {
         id: 3,
         name: "James Lipton",
-        questionaire_type: "character analysis",
+        questionaireType: "character analysis",
       },
       {
         id: 4,
         name: "Mouse Paw Media",
-        questionaire_type: "character analysis",
+        questionaireType: "character analysis",
       },
     ]);
   },

@@ -5,33 +5,30 @@ const models = require("../database/models");
 const questionService = {};
 
 questionService.getAll = async (filters = {}) => {
-  let { question_category, questionaire_id } = filters;
+  let { questionCategory, questionaireId } = filters;
 
-  //turn id string into integer otherwise it won't work for filtering
-  if (questionaire_id !== undefined) questionaire_id = +questionaire_id;
-
-  if (question_category && questionaire_id) {
+  if (questionCategory && questionaireId) {
     return models.Question.findAll({
       where: {
-        question_category,
-        questionaire_id,
+        questionCategory,
+        questionaireId,
       },
     });
   }
 
-  if (question_category) {
+  if (questionCategory) {
     return models.Question.findAll({
       where: {
-        question_category,
+        questionCategory,
       },
     });
   }
 
-  if (questionaire_id) {
-    questionaire_id = +questionaire_id;
+  if (questionaireId) {
+    questionaireId = +questionaireId;
     return models.Question.findAll({
       where: {
-        questionaire_id,
+        questionaireId,
       },
     });
   }

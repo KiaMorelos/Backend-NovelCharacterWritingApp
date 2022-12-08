@@ -25,11 +25,11 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
@@ -46,10 +46,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      character_photo_url: {
+      characterPhotoUrl: {
         type: Sequelize.STRING,
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -57,11 +57,11 @@ module.exports = {
           key: "id",
         },
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
@@ -78,7 +78,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      questionaire_type: {
+      questionaireType: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -91,7 +91,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      questionaire_id: {
+      questionaireId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -103,7 +103,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      question_category: {
+      questionCategory: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -116,7 +116,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      question_id: {
+      questionId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -124,7 +124,7 @@ module.exports = {
           key: "id",
         },
       },
-      character_id: {
+      characterId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -136,11 +136,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
