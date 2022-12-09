@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "create-model": "npx sequelize-cli model:generate --name",
-    "migrate": "npx sequelize-cli db:migrate",
+    "migration": "npx sequelize-cli db:migrate",
     "revert-migration": "npx sequelize-cli db:migrate:undo",
     "seed": "npx sequelize-cli db:seed:all",
     "undo-last-seed": "npx sequelize-cli db:seed:undo",
