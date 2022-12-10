@@ -56,7 +56,14 @@ router.post(
   charactersController.createNewCharacter
 );
 
-// PATCH ROUTES
+/** PATCH Routes
+ *  /characters/:userId/:characterId, user's id must be the same as the one the in parameter, req.body should contain a name at mininimum
+ *
+ * /users/:userId, user's id must be the same as the one the in parameter, req.body should contain a username, an email, and correct password, and optionally a new password
+ *
+ *
+ */
+
 router.patch(
   "/characters/:userId/:characterId",
   mustBeCorrectUser,
@@ -64,6 +71,13 @@ router.patch(
 );
 router.patch("/users/:userId", mustBeCorrectUser, usersController.patchUser);
 
-// DELETE ROUTES
+/** DELETE Routes
+ *  /characters/:userId/:characterId, user's id must be the same as the one the in parameter otherwise unauthorized, deletes 1 character by id
+ */
 
+router.delete(
+  "/characters/:userId/:characterId",
+  mustBeCorrectUser,
+  charactersController.deleteCharacter
+);
 module.exports = router;

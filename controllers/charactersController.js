@@ -101,4 +101,24 @@ charactersController.patchCharacter = async (req, res, next) => {
   }
 };
 
+charactersController.deleteCharacter = async (req, res, next) => {
+  try {
+    let { characterId } = req.params;
+
+    if (characterId === undefined) {
+      throw new BadReqError(
+        "Invalid or missing fields present, a character id is required"
+      );
+    }
+
+    characterId = +characterId;
+
+    const deleted = await characterService.destroyCharacter(characterId);
+
+    return res.status(200).json({ deleted });
+  } catch (error) {
+    return next(error);
+  }
+};
+
 module.exports = charactersController;

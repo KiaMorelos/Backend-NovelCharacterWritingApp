@@ -1,6 +1,7 @@
 "use strict";
 
 const models = require("../database/models");
+const { NotFoundError } = require("../expressError");
 
 const characterService = {};
 
@@ -52,6 +53,27 @@ characterService.updateCharacter = async ({
     },
   });
   return updatedCharacter;
+};
+
+characterService.destroyCharacter = async (characterId) => {
+  const character = await models.Character.findOne({
+    where: {
+      id: characterId,
+    },
+  });
+
+  if (!character)
+    throw new NotFoundError(
+      "This character doesn't exist or was already deleted"
+    );
+
+  const characterToDestroy = models.Character.destroy({
+    where: {
+      id: characterId,
+    },
+  });
+
+  return character.name;
 };
 
 module.exports = characterService;
