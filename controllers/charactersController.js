@@ -10,6 +10,7 @@ const characterService = require("../services/characterService");
 const jsonschema = require("jsonschema");
 
 const newCharacterSchema = require("../schemas/newCharacterSchema.json");
+const updateCharacterSchema = require("../schemas/updateCharacterSchema.json");
 const charactersController = {};
 
 charactersController.getAllUsersCharacters = async (req, res, next) => {
@@ -69,7 +70,32 @@ charactersController.createNewCharacter = async (req, res, next) => {
       ...req.body,
     });
 
-    return res.status(200).json({ character });
+    return res.status(201).json({ character });
+  } catch (error) {
+    return next(error);
+  }
+};
+
+charactersController.patchCharacter = async (req, res, next) => {
+  try {
+    let { characterId } = req.params;
+
+    if (characterId !== undefined) characterId = +characterId;
+
+    //validator expects a name, and an optional photo url
+    const validator = jsonschema.validate(req.body, updateCharacterSchema);
+    if (!validator.valid) {
+      throw new BadReqError(
+        "Invalid or missing fields present, at mininium, a character name is required"
+      );
+    }
+
+    const character = await characterService.updateCharacter({
+      characterId,
+      ...req.body,
+    });
+
+    return res.status(200).json({ updatedTo: character });
   } catch (error) {
     return next(error);
   }

@@ -26,11 +26,16 @@ const router = express.Router();
 
 router.get("/questions", mustBeLoggedIn, questionsController.getQuestions);
 router.get("/questionaires", mustBeLoggedIn, getAllQuestionaires);
-//prettier-ignore
-router.get("/:userId/characters", mustBeCorrectUser, charactersController.getAllUsersCharacters
+router.get(
+  "/characters/:userId",
+  mustBeCorrectUser,
+  charactersController.getAllUsersCharacters
 );
-// prettier-ignore
-router.get("/:userId/characters/:characterId", mustBeCorrectUser,charactersController.getCharacterById);
+router.get(
+  "/characters/:userId/:characterId",
+  mustBeCorrectUser,
+  charactersController.getCharacterById
+);
 router.get("/users/:userId", mustBeCorrectUser, usersController.getUserById);
 
 /** POST Routes
@@ -38,19 +43,26 @@ router.get("/users/:userId", mustBeCorrectUser, usersController.getUserById);
  *
  * /authenticate, req.body should contain a valid {username, password}, returns a token
  *
- * /:userId/characters, this route is used to CREATE a new character for the current user
+ * /:userId/characters, this route is used to CREATE a new character for the current user, req.body should contain a name, adding characterPhotoUrl is optional, returns the newly created character.
  *
  *
  */
 
 router.post("/signup", usersController.signup);
 router.post("/authenticate", usersController.authenticate);
-// prettier-ignore
-router.post("/:userId/characters", mustBeCorrectUser, charactersController.createNewCharacter);
+router.post(
+  "/characters/:userId",
+  mustBeCorrectUser,
+  charactersController.createNewCharacter
+);
 
 // PATCH ROUTES
-router.patch("/:userId/characters/:characterId");
-router.patch("/users/:id");
+router.patch(
+  "/characters/:userId/:characterId",
+  mustBeCorrectUser,
+  charactersController.patchCharacter
+);
+router.patch("/users/:userId", mustBeCorrectUser, usersController.patchUser);
 
 // DELETE ROUTES
 

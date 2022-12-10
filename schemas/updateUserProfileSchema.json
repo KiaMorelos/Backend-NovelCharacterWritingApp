@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "title": "Root Schema",
+  "type": "object",
+  "default": {},
+  "required": ["username", "password", "email"],
+  "additionalProperties": false,
+  "properties": {
+    "username": {
+      "title": "username Schema",
+      "type": "string",
+      "mininum": 1
+    },
+    "email": {
+      "title": "The email Schema",
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 60,
+      "format": "email"
+    },
+    "password": {
+      "title": "The password Schema",
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 20
+    },
+    "newPassword": {
+      "title": "The newPassword Schema",
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 20
+    }
+  },
+
+  "examples": [
+    {
+      "username": "writer",
+      "email": "guy@fic.com",
+      "password": "imapassword",
+      "newPassword": "imBETTERpassword"
+    }
+  ]
+}

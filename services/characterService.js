@@ -33,4 +33,25 @@ characterService.newCharacter = async ({
   return character;
 };
 
+characterService.updateCharacter = async ({
+  characterId,
+  name,
+  characterPhotoUrl = "",
+}) => {
+  const character = models.Character.update(
+    { name, characterPhotoUrl },
+    {
+      where: {
+        id: characterId,
+      },
+    }
+  );
+  const updatedCharacter = models.Character.findOne({
+    where: {
+      id: characterId,
+    },
+  });
+  return updatedCharacter;
+};
+
 module.exports = characterService;

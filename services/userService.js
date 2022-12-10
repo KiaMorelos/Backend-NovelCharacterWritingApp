@@ -24,7 +24,7 @@ userService.checkCredentials = async ({ username, password }) => {
     return user;
   }
 
-  return UnauthorizedError("Invalid username or password");
+  throw new UnauthorizedError("Invalid username or password");
 };
 
 userService.findUserById = async (userId) => {
@@ -35,6 +35,43 @@ userService.findUserById = async (userId) => {
   });
 
   return { username: user.username, email: user.email };
+};
+
+userService.updateUser = async ({
+  userId,
+  username,
+  email,
+  password,
+  newPassword = undefined,
+}) => {
+  const user = await models.User.findOne({
+    where: {
+      id: userId,
+    },
+  });
+
+  const isCorrectPass = await bcrypt.compare(password, user.password);
+  if (!isCorrectPass) throw new UnauthorizedError("Invalid password");
+  if (newPassword === undefined) {
+    newPassword = password;
+  }
+
+  password = await bcrypt.hash(newPassword, BCRYPT_WORK_FACTOR);
+
+  const updatedUser = models.User.update(
+    { username, email, password },
+    {
+      where: {
+        id: userId,
+      },
+    }
+  );
+
+  return {
+    message: "Successfully updated profile",
+    username,
+    email,
+  };
 };
 
 module.exports = userService;
