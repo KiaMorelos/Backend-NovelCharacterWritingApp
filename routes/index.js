@@ -9,6 +9,7 @@ const {
   mustBeLoggedIn,
   mustBeCorrectUser,
 } = require("../middleware/authorization");
+const answersController = require("../controllers/answersController");
 
 const router = express.Router();
 
@@ -36,6 +37,11 @@ router.get(
   mustBeCorrectUser,
   charactersController.getCharacterById
 );
+router.get(
+  "/characters/:userId/:characterId/answers",
+  mustBeCorrectUser,
+  answersController.getAllCharacterAnswers
+);
 router.get("/users/:userId", mustBeCorrectUser, usersController.getUserById);
 
 /** POST Routes
@@ -54,6 +60,11 @@ router.post(
   "/characters/:userId",
   mustBeCorrectUser,
   charactersController.createNewCharacter
+);
+router.post(
+  "/characters/:userId/:characterId/answers",
+  mustBeCorrectUser,
+  answersController.createNewAnswers
 );
 
 /** PATCH Routes

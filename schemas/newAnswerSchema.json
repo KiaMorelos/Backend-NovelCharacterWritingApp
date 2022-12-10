@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "title": "Root Schema",
+  "type": "object",
+  "default": {},
+  "required": ["answers"],
+  "additionalProperties": true,
+  "properties": {
+    "answers": {
+      "title": "The answers Schema",
+      "type": "array",
+      "default": [],
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "title": "A Schema",
+        "type": "object",
+        "required": ["questionId", "answer"],
+        "additionalProperties": true,
+        "properties": {
+          "questionId": {
+            "title": "The questionId Schema",
+            "type": "integer",
+            "examples": [1, 2]
+          },
+          "answer": {
+            "title": "The answer Schema",
+            "type": "string",
+            "examples": ["Purple", "greyhound"]
+          }
+        },
+        "examples": [
+          {
+            "questionId": 1,
+            "answer": "Purple"
+          },
+          {
+            "questionId": 2,
+            "answer": "greyhound"
+          }
+        ]
+      },
+
+      "examples": [
+        [
+          {
+            "questionId": 1,
+            "answer": "Purple"
+          },
+          {
+            "questionId": 2,
+            "answer": "greyhound"
+          }
+        ]
+      ]
+    }
+  },
+  "examples": [
+    {
+      "answers": [
+        {
+          "questionId": 1,
+          "answer": "Purple"
+        },
+        {
+          "questionId": 2,
+          "answer": "greyhound"
+        }
+      ]
+    }
+  ]
+}
