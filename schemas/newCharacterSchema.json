@@ -4,25 +4,26 @@
   "title": "Root Schema",
   "type": "object",
   "default": {},
-  "required": ["username", "password"],
+  "required": ["name"],
   "additionalProperties": false,
   "properties": {
-    "username": {
-      "title": "username Schema",
+    "name": {
+      "title": "character name Schema",
       "type": "string",
       "mininum": 1
     },
-    "password": {
-      "title": "The email Schema",
+    "characterPhotoUrl": {
+      "title": "The url Schema",
       "type": "string",
-      "minLength": 8,
-      "maxLength": 20
+      "minLength": 6,
+      "maxLength": 60,
+      "format": "url"
     }
   },
   "examples": [
     {
-      "username": "writer",
-      "password": "imapassword"
+      "characterPhotoUrl": "https://www.aImage.com/character",
+      "name": "Gabe Brenner"
     }
   ]
 }

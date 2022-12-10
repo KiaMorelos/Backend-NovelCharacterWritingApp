@@ -9,7 +9,7 @@ const SECRET_KEY = process.env.SECRET_KEY;
 function generateToken(user) {
   const payload = {
     username: user.username,
-    username: user.email,
+    userId: user.id,
   };
 
   return jwt.sign(payload, SECRET_KEY);

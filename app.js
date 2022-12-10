@@ -7,7 +7,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { authenticateToken } = require("./middleware/authorization");
 
-app.use(express.json());
+// app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());

@@ -10,7 +10,7 @@ const getQuestionsSchema = require("../schemas/getQuestionsSchema.json");
 const questionService = require("../services/questionService");
 const questionsController = {};
 
-questionsController.getQuestions = async (req, res) => {
+questionsController.getQuestions = async (req, res, next) => {
   try {
     let filters = req.query;
 
@@ -31,7 +31,7 @@ questionsController.getQuestions = async (req, res) => {
 
     return res.status(200).json({ questions });
   } catch (error) {
-    return res.status(error.status).json(error);
+    return next(error);
   }
 };
 

@@ -29,4 +29,17 @@ function mustBeLoggedIn(req, res, next) {
   }
 }
 
-module.exports = { authenticateToken, mustBeLoggedIn };
+function mustBeCorrectUser(req, res, next) {
+  try {
+    const user = res.locals.user;
+    let paramsUserId = +req.params.userId;
+    if (!(user && user.userId === paramsUserId)) {
+      throw new UnauthorizedError();
+    }
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+}
+
+module.exports = { authenticateToken, mustBeLoggedIn, mustBeCorrectUser };

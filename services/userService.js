@@ -27,4 +27,14 @@ userService.checkCredentials = async ({ username, password }) => {
   return UnauthorizedError("Invalid username or password");
 };
 
+userService.findUserById = async (userId) => {
+  const user = await models.User.findOne({
+    where: {
+      id: userId,
+    },
+  });
+
+  return { username: user.username, email: user.email };
+};
+
 module.exports = userService;
