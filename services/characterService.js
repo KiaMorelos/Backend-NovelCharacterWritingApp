@@ -1,7 +1,7 @@
 "use strict";
 
 const models = require("../database/models");
-const { NotFoundError } = require("../expressError");
+const { NotFoundError, UnauthorizedError } = require("../expressError");
 
 const characterService = {};
 
@@ -39,7 +39,7 @@ characterService.updateCharacter = async ({
   name,
   characterPhotoUrl = "",
 }) => {
-  const character = models.Character.update(
+  const updatedCharacter = models.Character.update(
     { name, characterPhotoUrl },
     {
       where: {
@@ -47,12 +47,8 @@ characterService.updateCharacter = async ({
       },
     }
   );
-  const updatedCharacter = models.Character.findOne({
-    where: {
-      id: characterId,
-    },
-  });
-  return updatedCharacter;
+
+  return { name, characterPhotoUrl };
 };
 
 characterService.destroyCharacter = async (characterId) => {

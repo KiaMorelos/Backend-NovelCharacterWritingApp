@@ -28,13 +28,13 @@ const router = express.Router();
 router.get("/questions", mustBeLoggedIn, questionsController.getQuestions);
 router.get("/questionaires", mustBeLoggedIn, getAllQuestionaires);
 router.get(
-  "/characters/:userId",
-  mustBeCorrectUser,
-  charactersController.getAllUsersCharacters
+  "/characters",
+  mustBeLoggedIn,
+  charactersController.getAllCharacters
 );
 router.get(
-  "/characters/:userId/:characterId",
-  mustBeCorrectUser,
+  "/characters/:characterId",
+  mustBeLoggedIn,
   charactersController.getCharacterById
 );
 router.get(
@@ -57,8 +57,8 @@ router.get("/users/:userId", mustBeCorrectUser, usersController.getUserById);
 router.post("/signup", usersController.signup);
 router.post("/authenticate", usersController.authenticate);
 router.post(
-  "/characters/:userId",
-  mustBeCorrectUser,
+  "/characters",
+  mustBeLoggedIn,
   charactersController.createNewCharacter
 );
 router.post(
@@ -76,8 +76,8 @@ router.post(
  */
 
 router.patch(
-  "/characters/:userId/:characterId",
-  mustBeCorrectUser,
+  "/characters/:characterId",
+  mustBeLoggedIn,
   charactersController.patchCharacter
 );
 router.patch("/users/:userId", mustBeCorrectUser, usersController.patchUser);
@@ -87,8 +87,8 @@ router.patch("/users/:userId", mustBeCorrectUser, usersController.patchUser);
  */
 
 router.delete(
-  "/characters/:userId/:characterId",
-  mustBeCorrectUser,
+  "/characters/:characterId",
+  mustBeLoggedIn,
   charactersController.deleteCharacter
 );
 module.exports = router;

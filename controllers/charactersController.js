@@ -4,7 +4,11 @@ let db = require("../configs/postgresql"),
   sequelize = db.sequelize,
   Sequelize = db.Sequelize;
 
-const { BadReqError, NotFoundError } = require("../expressError");
+const {
+  BadReqError,
+  NotFoundError,
+  UnauthorizedError,
+} = require("../expressError");
 
 const characterService = require("../services/characterService");
 const jsonschema = require("jsonschema");
@@ -13,18 +17,11 @@ const newCharacterSchema = require("../schemas/newCharacterSchema.json");
 const updateCharacterSchema = require("../schemas/updateCharacterSchema.json");
 const charactersController = {};
 
-charactersController.getAllUsersCharacters = async (req, res, next) => {
+charactersController.getAllCharacters = async (req, res, next) => {
   try {
-    let { userId } = req.params;
-
-    if (userId !== undefined) userId = +userId;
+    let { userId } = res.locals.user;
 
     const characters = await characterService.getAll(userId);
-
-    if (!characters.length)
-      return res
-        .status(200)
-        .json({ message: "You haven't created any new characters yet" });
 
     return res.status(200).json({ characters });
   } catch (error) {
@@ -34,16 +31,16 @@ charactersController.getAllUsersCharacters = async (req, res, next) => {
 
 charactersController.getCharacterById = async (req, res, next) => {
   try {
-    let { userId, characterId } = req.params;
-
-    if (userId !== undefined && characterId !== undefined) {
-      userId = +userId;
-      characterId = +characterId;
-    }
+    let { characterId } = req.params;
+    let { userId } = res.locals.user;
 
     const character = await characterService.findCharacterById(characterId);
 
     if (!character) throw new NotFoundError("This character does not exist");
+
+    if (character.userId !== userId) {
+      throw new UnauthorizedError();
+    }
 
     return res.status(200).json({ character });
   } catch (error) {
@@ -53,9 +50,7 @@ charactersController.getCharacterById = async (req, res, next) => {
 
 charactersController.createNewCharacter = async (req, res, next) => {
   try {
-    let { userId } = req.params;
-
-    if (userId !== undefined) userId = +userId;
+    let { userId } = res.locals.user;
 
     //validator expects a name, and an optional photo url
     const validator = jsonschema.validate(req.body, newCharacterSchema);
@@ -79,8 +74,9 @@ charactersController.createNewCharacter = async (req, res, next) => {
 charactersController.patchCharacter = async (req, res, next) => {
   try {
     let { characterId } = req.params;
+    let { userId } = res.locals.user;
 
-    if (characterId !== undefined) characterId = +characterId;
+    characterId = +characterId;
 
     //validator expects a name, and an optional photo url
     const validator = jsonschema.validate(req.body, updateCharacterSchema);
@@ -90,12 +86,17 @@ charactersController.patchCharacter = async (req, res, next) => {
       );
     }
 
-    const character = await characterService.updateCharacter({
+    const origCharacter = await characterService.findCharacterById(characterId);
+    if (!origCharacter) throw new NotFoundError();
+
+    if (origCharacter.userId !== userId) throw new UnauthorizedError();
+
+    const updatedCharacter = await characterService.updateCharacter({
       characterId,
       ...req.body,
     });
 
-    return res.status(200).json({ updatedTo: character });
+    return res.status(200).json({ updatedTo: updatedCharacter });
   } catch (error) {
     return next(error);
   }
@@ -104,14 +105,14 @@ charactersController.patchCharacter = async (req, res, next) => {
 charactersController.deleteCharacter = async (req, res, next) => {
   try {
     let { characterId } = req.params;
-
-    if (characterId === undefined) {
-      throw new BadReqError(
-        "Invalid or missing fields present, a character id is required"
-      );
-    }
+    let { userId } = res.locals.user;
 
     characterId = +characterId;
+
+    const origCharacter = await characterService.findCharacterById(characterId);
+    if (!origCharacter) throw new NotFoundError();
+
+    if (origCharacter.userId !== userId) throw new UnauthorizedError();
 
     const deleted = await characterService.destroyCharacter(characterId);
 
