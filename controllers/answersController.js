@@ -7,37 +7,26 @@ let db = require("../configs/postgresql"),
 const { BadReqError, NotFoundError } = require("../expressError");
 
 const answerService = require("../services/answerService");
+const characterService = require("../services/characterService");
 const jsonschema = require("jsonschema");
 const newAnswerSchema = require("../schemas/newAnswerSchema.json");
 
 const answersController = {};
 
-answersController.getAllCharacterAnswers = async (req, res, next) => {
-  try {
-    let { characterId } = req.params;
-
-    if (characterId !== undefined) characterId = +characterId;
-
-    const answers = await answerService.getAll(characterId);
-
-    if (!answers.length)
-      return res.status(200).json({
-        answers,
-        message:
-          "You haven't added any answers to questions for this character yet",
-      });
-
-    return res.status(200).json({ answers });
-  } catch (error) {
-    return next(error);
-  }
-};
-
 answersController.createNewAnswers = async (req, res, next) => {
   try {
+    let { userId } = res.locals.user;
     let { characterId } = req.params;
 
-    if (characterId !== undefined) characterId = +characterId;
+    characterId = +characterId;
+
+    const character = await characterService.findCharacterById(characterId);
+
+    if (!character) throw new NotFoundError("This character does not exist");
+
+    if (character.userId !== userId) {
+      throw new UnauthorizedError();
+    }
 
     //validator expects an array of answer objects [{questionId: 1, answer: "purple"}], at least one item should be in the array
     const validator = jsonschema.validate(req.body, newAnswerSchema);

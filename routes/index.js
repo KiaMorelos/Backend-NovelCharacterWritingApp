@@ -20,7 +20,7 @@ const router = express.Router();
  *
  * /characters, requires auth, should retrieve the current user's characters
  *
- * characters/:characterId, requires auth, should retrieve character by their id which belongs to the current user
+ * characters/:characterId, requires auth, should retrieve character/answers by their id which belongs to the current user
  *
  * /users/:userId, requires auth, should retrieve current user's profile details
  */
@@ -37,11 +37,7 @@ router.get(
   mustBeLoggedIn,
   charactersController.getCharacterById
 );
-router.get(
-  "/characters/:userId/:characterId/answers",
-  mustBeCorrectUser,
-  answersController.getAllCharacterAnswers
-);
+
 router.get("/users/:userId", mustBeCorrectUser, usersController.getUserById);
 
 /** POST Routes
@@ -62,8 +58,8 @@ router.post(
   charactersController.createNewCharacter
 );
 router.post(
-  "/characters/:userId/:characterId/answers",
-  mustBeCorrectUser,
+  "/characters/:characterId/answers",
+  mustBeLoggedIn,
   answersController.createNewAnswers
 );
 
