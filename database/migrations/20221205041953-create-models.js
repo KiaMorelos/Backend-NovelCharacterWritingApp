@@ -56,6 +56,7 @@ module.exports = {
           model: "users",
           key: "id",
         },
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,
@@ -131,6 +132,7 @@ module.exports = {
           model: "characters",
           key: "id",
         },
+        onDelete: "CASCADE",
       },
       answer: {
         type: Sequelize.STRING,

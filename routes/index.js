@@ -18,9 +18,9 @@ const router = express.Router();
  *
  * /questionaires, requires auth, retrieves list of available questionaires
  *
- * /:userId/characters, requires auth, should retrieve the current user's characters
+ * /characters, requires auth, should retrieve the current user's characters
  *
- * /:userId/characters/:characterId, requires auth, should retrieve character by their id which belongs to the current user
+ * characters/:characterId, requires auth, should retrieve character by their id which belongs to the current user
  *
  * /users/:userId, requires auth, should retrieve current user's profile details
  */
@@ -49,7 +49,7 @@ router.get("/users/:userId", mustBeCorrectUser, usersController.getUserById);
  *
  * /authenticate, req.body should contain a valid {username, password}, returns a token
  *
- * /:userId/characters, this route is used to CREATE a new character for the current user, req.body should contain a name, adding characterPhotoUrl is optional, returns the newly created character.
+ * /characters, this route is used to CREATE a new character for the current user, req.body should contain a name, adding characterPhotoUrl is optional, returns the newly created character.
  *
  *
  */
@@ -68,7 +68,7 @@ router.post(
 );
 
 /** PATCH Routes
- *  /characters/:userId/:characterId, user's id must be the same as the one the in parameter, req.body should contain a name at mininimum
+ *  /characters/:characterId, user's id must match the the userId on the character, req.body should contain a name at mininimum
  *
  * /users/:userId, user's id must be the same as the one the in parameter, req.body should contain a username, an email, and correct password, and optionally a new password
  *
@@ -83,7 +83,7 @@ router.patch(
 router.patch("/users/:userId", mustBeCorrectUser, usersController.patchUser);
 
 /** DELETE Routes
- *  /characters/:userId/:characterId, user's id must be the same as the one the in parameter otherwise unauthorized, deletes 1 character by id
+ *  /characters/:characterId, user's id must be the same as the one the in parameter otherwise unauthorized, deletes 1 character by id
  */
 
 router.delete(
