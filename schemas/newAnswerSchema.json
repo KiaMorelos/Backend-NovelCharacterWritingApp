@@ -5,7 +5,7 @@
   "type": "object",
   "default": {},
   "required": ["answers"],
-  "additionalProperties": true,
+  "additionalProperties": false,
   "properties": {
     "answers": {
       "title": "The answers Schema",

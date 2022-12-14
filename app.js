@@ -3,14 +3,15 @@
 const express = require("express");
 const app = express();
 const routes = require("./routes");
+const morgan = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { authenticateToken } = require("./middleware/authorization");
 
-// app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
+app.use(morgan("tiny"));
 app.use(cors());
 app.use(authenticateToken);
 

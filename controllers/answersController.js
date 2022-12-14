@@ -75,7 +75,7 @@ answersController.patchAnswer = async (req, res, next) => {
       ...req.body,
     });
 
-    return res.status(201).json({ updated: answer });
+    return res.status(200).json({ updated: answer });
   } catch (error) {
     return next(error);
   }
