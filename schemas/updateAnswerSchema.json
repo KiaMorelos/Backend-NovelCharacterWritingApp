@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "title": "Root Schema",
+  "type": "object",
+  "default": {},
+  "required": ["answer"],
+  "additionalProperties": false,
+  "properties": {
+    "answer": {
+      "title": "The answer Schema",
+      "type": "string",
+      "default": "",
+      "examples": ["Likes dogs"]
+    }
+  },
+  "examples": [
+    {
+      "answer": "Likes dogs"
+    }
+  ]
+}

@@ -10,6 +10,7 @@ const answerService = require("../services/answerService");
 const characterService = require("../services/characterService");
 const jsonschema = require("jsonschema");
 const newAnswerSchema = require("../schemas/newAnswerSchema.json");
+const updateAnswerSchema = require("../schemas/updateAnswerSchema.json");
 
 const answersController = {};
 
@@ -42,6 +43,63 @@ answersController.createNewAnswers = async (req, res, next) => {
     });
 
     return res.status(201).json(answers);
+  } catch (error) {
+    return next(error);
+  }
+};
+
+answersController.patchAnswer = async (req, res, next) => {
+  try {
+    let { userId } = res.locals.user;
+    let { characterId, answerId } = req.params;
+
+    characterId = +characterId;
+    answerId = +answerId;
+
+    const character = await characterService.findCharacterById(characterId);
+
+    if (!character) throw new NotFoundError("This character does not exist");
+
+    if (character.userId !== userId) {
+      throw new UnauthorizedError();
+    }
+
+    //validator expects an array of an answer objects {characterId: 1, answer: "purple"}, and not other fields
+    const validator = jsonschema.validate(req.body, updateAnswerSchema);
+    if (!validator.valid) {
+      throw new BadReqError("Invalid or missing fields present.");
+    }
+
+    const answer = await answerService.updateAnswer({
+      id: answerId,
+      ...req.body,
+    });
+
+    return res.status(201).json({ updated: answer });
+  } catch (error) {
+    return next(error);
+  }
+};
+
+answersController.deleteAnswer = async (req, res, next) => {
+  try {
+    let { userId } = res.locals.user;
+    let { characterId, answerId } = req.params;
+
+    characterId = +characterId;
+    answerId = +answerId;
+
+    const character = await characterService.findCharacterById(characterId);
+
+    if (!character) throw new NotFoundError("This character does not exist");
+
+    if (character.userId !== userId) {
+      throw new UnauthorizedError();
+    }
+
+    const deleted = await answerService.destroyAnswer(answerId);
+
+    return res.status(201).json({ deleted });
   } catch (error) {
     return next(error);
   }

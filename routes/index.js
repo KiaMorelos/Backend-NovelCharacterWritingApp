@@ -1,7 +1,7 @@
 "use strict";
 const express = require("express");
 const questionsController = require("../controllers/questionsController");
-const getAllQuestionaires = require("../controllers/questionairesController");
+const questionairesController = require("../controllers/questionairesController");
 const usersController = require("../controllers/usersController");
 const charactersController = require("../controllers/charactersController");
 
@@ -20,13 +20,17 @@ const router = express.Router();
  *
  * /characters, requires auth, should retrieve the current user's characters
  *
- * characters/:characterId, requires auth, should retrieve character/answers by their id which belongs to the current user
+ * /characters/:characterId, requires auth, should retrieve character/answers by their id which belongs to the current user
  *
  * /users/:userId, requires auth, should retrieve current user's profile details
  */
 
 router.get("/questions", mustBeLoggedIn, questionsController.getQuestions);
-router.get("/questionaires", mustBeLoggedIn, getAllQuestionaires);
+router.get(
+  "/questionaires",
+  mustBeLoggedIn,
+  questionairesController.getAllQuestionaires
+);
 router.get(
   "/characters",
   mustBeLoggedIn,
@@ -47,6 +51,7 @@ router.get("/users/:userId", mustBeCorrectUser, usersController.getUserById);
  *
  * /characters, this route is used to CREATE a new character for the current user, req.body should contain a name, adding characterPhotoUrl is optional, returns the newly created character.
  *
+ * /characters/:characterId/answers, this route is used to create new answers for a character, req.body should inlcude questionId, and answer.
  *
  */
 
@@ -68,6 +73,7 @@ router.post(
  *
  * /users/:userId, user's id must be the same as the one the in parameter, req.body should contain a username, an email, and correct password, and optionally a new password
  *
+ * /characters/:characterId/answers/:answerId, this route is used to patch an answer for a character, req.body should include an answer object.
  *
  */
 
@@ -76,15 +82,27 @@ router.patch(
   mustBeLoggedIn,
   charactersController.patchCharacter
 );
+router.patch(
+  "/characters/:characterId/answers/:answerId",
+  mustBeLoggedIn,
+  answersController.patchAnswer
+);
 router.patch("/users/:userId", mustBeCorrectUser, usersController.patchUser);
 
 /** DELETE Routes
  *  /characters/:characterId, user's id must be the same as the one the in parameter otherwise unauthorized, deletes 1 character by id
+ *
+ * /characters/:characterId/answers/:answerId, this route is used to delete an answer. User's id must be the same as the one the in parameter otherwise unauthorized, deletes 1 character by id
  */
 
 router.delete(
   "/characters/:characterId",
   mustBeLoggedIn,
   charactersController.deleteCharacter
+);
+router.delete(
+  "/characters/:characterId/answers/:answerId",
+  mustBeLoggedIn,
+  answersController.deleteAnswer
 );
 module.exports = router;

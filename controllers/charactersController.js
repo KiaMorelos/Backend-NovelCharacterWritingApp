@@ -114,7 +114,10 @@ charactersController.deleteCharacter = async (req, res, next) => {
 
     if (origCharacter.userId !== userId) throw new UnauthorizedError();
 
-    const deleted = await characterService.destroyCharacter(characterId);
+    const deleted = await characterService.destroyCharacter(
+      characterId,
+      userId
+    );
 
     return res.status(200).json({ deleted });
   } catch (error) {

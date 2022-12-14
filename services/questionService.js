@@ -25,7 +25,6 @@ questionService.getAll = async (filters = {}) => {
   }
 
   if (questionaireId) {
-    questionaireId = +questionaireId;
     return models.Question.findAll({
       where: {
         questionaireId,

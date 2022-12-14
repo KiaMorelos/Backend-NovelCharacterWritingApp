@@ -10,4 +10,25 @@ answerService.newAnswers = async ({ characterId, answers }) => {
   return newAnswers;
 };
 
+answerService.updateAnswer = async ({ id, answer }) => {
+  const updateAnswer = models.Answer.update(
+    { answer },
+    {
+      where: {
+        id,
+      },
+    }
+  );
+  return { id, answer };
+};
+
+answerService.destroyAnswer = async (id) => {
+  const destroyed = models.Answer.destroy({
+    where: {
+      id,
+    },
+  });
+  return destroyed;
+};
+
 module.exports = answerService;

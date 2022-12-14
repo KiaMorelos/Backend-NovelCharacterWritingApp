@@ -21,11 +21,11 @@ characterService.findCharacterById = async (characterId) => {
     include: [
       {
         model: models.Answer,
-        attributes: ["answer"],
+        attributes: ["id", "answer"],
         include: [
           {
             model: models.Question,
-            attributes: ["id", "question", "questionCategory"],
+            attributes: ["question", "questionCategory"],
             include: [{ model: models.Questionaire, attributes: ["name"] }],
           },
         ],
@@ -64,25 +64,15 @@ characterService.updateCharacter = async ({
   return { name, characterPhotoUrl };
 };
 
-characterService.destroyCharacter = async (characterId) => {
-  const character = await models.Character.findOne({
+characterService.destroyCharacter = async (characterId, userId) => {
+  const destroyed = models.Character.destroy({
     where: {
       id: characterId,
+      userId,
     },
   });
 
-  if (!character)
-    throw new NotFoundError(
-      "This character doesn't exist or was already deleted"
-    );
-
-  const characterToDestroy = models.Character.destroy({
-    where: {
-      id: characterId,
-    },
-  });
-
-  return character.name;
+  return destroyed;
 };
 
 module.exports = characterService;
