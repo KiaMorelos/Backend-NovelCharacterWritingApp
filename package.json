@@ -11,7 +11,7 @@
     "undo-last-seed": "npx sequelize-cli db:seed:undo",
     "start": "nodemon server.js",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "test": "cross-env NODE_ENV=test jest",
+    "test": "cross-env NODE_ENV=test jest --watchAll --detectOpenHandles",
     "pretest": "cross-env NODE_ENV=test npm run db:reset",
     "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create"
   },
