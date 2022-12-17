@@ -26,9 +26,6 @@ questionsController.getQuestions = async (req, res, next) => {
 
     const questions = await questionService.getAll(filters);
 
-    if (!questions.length)
-      return res.status(200).json({ message: "Sorry, no results found!" });
-
     return res.status(200).json({ questions });
   } catch (error) {
     return next(error);
