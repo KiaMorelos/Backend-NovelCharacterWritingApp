@@ -128,6 +128,19 @@ describe("Character Route Tests", () => {
     expect(res2.body.characters[0].name).toContain("My Test Character");
   });
 
+  it("PATCH /characters/:characterId, should not allow patch requests on characters that belong to logged in user with invalid fields", async () => {
+    const updatedCharacter = {
+      name: "My Test Character",
+      characterPhotoUrl: "www.cool.com/img",
+      notAllowed: true,
+    };
+    const res = await request(app)
+      .patch(`/api/characters/${userOneCharacter.id}`)
+      .send(updatedCharacter)
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(400);
+  });
+
   it("PATCH /characters/:characterId, should NOT allow patch requests on characters for non logged in users", async () => {
     const updatedCharacter = {
       name: "Not logged in Test Character ",

@@ -14,6 +14,11 @@ describe("Questionaire Routes Tests", () => {
       .set("token", `Bearer ${user1Token}`);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty("questionaires");
+    expect(res.body.questionaires).toContainEqual({
+      id: 1,
+      name: "Marcel Proust",
+      questionaireType: "character analysis",
+    });
   });
   it("GET /questionaires, should return unauthorized status code to non-logged in user", async () => {
     const res = await request(app).get("/api/questionaires");
