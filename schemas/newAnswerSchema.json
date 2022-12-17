@@ -17,7 +17,7 @@
         "title": "A Schema",
         "type": "object",
         "required": ["questionId", "answer"],
-        "additionalProperties": true,
+        "additionalProperties": false,
         "properties": {
           "questionId": {
             "title": "The questionId Schema",

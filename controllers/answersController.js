@@ -4,7 +4,11 @@ let db = require("../configs/postgresql"),
   sequelize = db.sequelize,
   Sequelize = db.Sequelize;
 
-const { BadReqError, NotFoundError } = require("../expressError");
+const {
+  BadReqError,
+  NotFoundError,
+  UnauthorizedError,
+} = require("../expressError");
 
 const answerService = require("../services/answerService");
 const characterService = require("../services/characterService");
@@ -99,7 +103,7 @@ answersController.deleteAnswer = async (req, res, next) => {
 
     const deleted = await answerService.destroyAnswer(answerId);
 
-    return res.status(201).json({ deleted });
+    return res.status(200).json({ deleted });
   } catch (error) {
     return next(error);
   }

@@ -3,6 +3,7 @@ const app = require("../app");
 const db = require("../database/models/index");
 const userService = require("../services/userService");
 const characterService = require("../services/characterService");
+const answerService = require("../services/answerService");
 
 const { generateToken } = require("../helpers/tokens");
 
@@ -17,6 +18,15 @@ let user2 = {
   password: "testuser2",
 };
 
+let testAnswer = {
+  answers: [
+    {
+      questionId: 3,
+      answer: "Red",
+    },
+  ],
+};
+
 let user1Token;
 let user2Token;
 let userOneCharacter;
@@ -28,6 +38,10 @@ beforeAll(async function () {
     userId: user1.id,
     name: "TestCharacter",
     characterPhotoUrl: "",
+  });
+  testAnswer = await answerService.newAnswers({
+    characterId: userOneCharacter.id,
+    ...testAnswer,
   });
   user1Token = generateToken(user1);
   user2Token = generateToken(user2);
@@ -97,6 +111,59 @@ describe("Character Route Tests", () => {
     expect(res.statusCode).toEqual(400);
   });
 
+  it("POST /characters/:characterId/answers, should allow post requests from logged in user", async () => {
+    const answerArrObj = {
+      answers: [
+        {
+          questionId: 1,
+          answer: "Purple",
+        },
+        {
+          questionId: 2,
+          answer: "greyhound",
+        },
+      ],
+    };
+    const res = await request(app)
+      .post(`/api/characters/${userOneCharacter.id}/answers`)
+      .send(answerArrObj)
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(201);
+  });
+
+  it("POST /characters/:characterId/answers, should not allow post requests from logged in user with incorrect fields", async () => {
+    const answerArrObj = {
+      answers: [
+        {
+          questionId: 1,
+          answer: "Purple",
+          notAllowed: true,
+        },
+      ],
+    };
+    const res = await request(app)
+      .post(`/api/characters/${userOneCharacter.id}/answers`)
+      .send(answerArrObj)
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(400);
+  });
+
+  it("POST /characters/:characterId/answers, should not allow answer post requests on character from incorrect user", async () => {
+    const answerArrObj = {
+      answers: [
+        {
+          questionId: 1,
+          answer: "Purple",
+        },
+      ],
+    };
+    const res = await request(app)
+      .post(`/api/characters/${userOneCharacter.id}/answers`)
+      .send(answerArrObj)
+      .set("token", `Bearer ${user2Token}`);
+    expect(res.statusCode).toEqual(401);
+  });
+
   it("PATCH /characters/:characterId, should NOT allow patch requests on characters that don't belong to user", async () => {
     const updatedCharacter = {
       name: "Notmy Test Character ",
@@ -149,6 +216,85 @@ describe("Character Route Tests", () => {
     const res = await request(app)
       .patch(`/api/characters/${userOneCharacter.id}`)
       .send(updatedCharacter);
+    expect(res.statusCode).toEqual(401);
+  });
+
+  it("PATCH /characters/:characterId/answers/:answerId, should allow patch requests from correct logged in user", async () => {
+    const answerArrObj = { answer: "Likes dogs" };
+
+    const res = await request(app)
+      .patch(
+        `/api/characters/${userOneCharacter.id}/answers/${testAnswer[0].id}`
+      )
+      .send(answerArrObj)
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toEqual({
+      updated: {
+        id: testAnswer[0].id,
+        answer: "Likes dogs",
+      },
+    });
+  });
+
+  it("PATCH /characters/:characterId/answers/:answerId, should not allow patch requests from correct logged in user with invalid fields", async () => {
+    const answerArrObj = { answer: "Likes dogs", questionId: 3 };
+
+    const res = await request(app)
+      .patch(
+        `/api/characters/${userOneCharacter.id}/answers/${testAnswer[0].id}`
+      )
+      .send(answerArrObj)
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(400);
+  });
+
+  it("PATCH /characters/:characterId/answers/:answerId, should NOT allow patch requests from incorrect user", async () => {
+    const answerArrObj = { answer: "Likes dogs" };
+
+    const res = await request(app)
+      .patch(
+        `/api/characters/${userOneCharacter.id}/answers/${testAnswer[0].id}`
+      )
+      .send(answerArrObj)
+      .set("token", `Bearer ${user2Token}`);
+    expect(res.statusCode).toEqual(401);
+  });
+
+  it("PATCH /characters/:characterId/answers/:answerId, should NOT allow patch requests from not logged in user", async () => {
+    const answerArrObj = { answer: "Likes dogs" };
+
+    const res = await request(app)
+      .patch(
+        `/api/characters/${userOneCharacter.id}/answers/${testAnswer[0].id}`
+      )
+      .send(answerArrObj);
+    expect(res.statusCode).toEqual(401);
+  });
+
+  it("DELETE /characters/:characterId/answers/:answerId, should allow delete requests from correct logged in user", async () => {
+    const res = await request(app)
+      .delete(
+        `/api/characters/${userOneCharacter.id}/answers/${testAnswer[0].id}`
+      )
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toEqual({ deleted: 1 });
+  });
+
+  it("DELETE /characters/:characterId/answers/:answerId, should not allow delete requests from incorrect user", async () => {
+    const res = await request(app)
+      .delete(
+        `/api/characters/${userOneCharacter.id}/answers/${testAnswer[0].id}`
+      )
+      .set("token", `Bearer ${user2Token}`);
+    expect(res.statusCode).toEqual(401);
+  });
+
+  it("DELETE /characters/:characterId/answers/:answerId, should not allow delete requests from not logged in user", async () => {
+    const res = await request(app).delete(
+      `/api/characters/${userOneCharacter.id}/answers/${testAnswer[0].id}`
+    );
     expect(res.statusCode).toEqual(401);
   });
 

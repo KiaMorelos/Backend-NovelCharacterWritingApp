@@ -1,6 +1,7 @@
 "use strict";
 
 const models = require("../database/models");
+const { Op } = require("sequelize");
 
 const questionService = {};
 
@@ -10,8 +11,7 @@ questionService.getAll = async (filters = {}) => {
   if (questionCategory && questionaireId) {
     return models.Question.findAll({
       where: {
-        questionCategory,
-        questionaireId,
+        [Op.or]: [{ questionCategory }, { questionaireId }],
       },
     });
   }

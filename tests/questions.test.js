@@ -58,6 +58,29 @@ describe("Questions Route Tests", () => {
     });
   });
 
+  it("GET /questions, should show allow filtering based on both questionCategory AND questionaireId", async () => {
+    const res = await request(app)
+      .get("/api/questions")
+      .query({ questionCategory: "brief history", questionaireId: 3 })
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty("questions");
+    expect(res.body.questions).toContainEqual(
+      {
+        id: 56,
+        questionaireId: 4,
+        question: "Full name and aliases?",
+        questionCategory: "brief history",
+      },
+      {
+        id: 46,
+        questionaireId: 3,
+        question: "What is your favorite word?",
+        questionCategory: "psychological information",
+      }
+    );
+  });
+
   it("GET /questions, should return unauthorized status code to non-logged in user", async () => {
     const res = await request(app).get("/api/questions");
     expect(res.statusCode).toEqual(401);
