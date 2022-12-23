@@ -10,6 +10,7 @@ characterService.getAll = async (userId) => {
     where: {
       userId,
     },
+    order: [["name", "ASC"]],
   });
 };
 
