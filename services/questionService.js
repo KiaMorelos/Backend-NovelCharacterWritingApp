@@ -11,7 +11,8 @@ questionService.getAll = async (filters = {}) => {
   if (questionCategory && questionaireId) {
     return models.Question.findAll({
       where: {
-        [Op.or]: [{ questionCategory }, { questionaireId }],
+        questionCategory,
+        questionaireId,
       },
     });
   }

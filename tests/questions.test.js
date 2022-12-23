@@ -61,24 +61,25 @@ describe("Questions Route Tests", () => {
   it("GET /questions, should show allow filtering based on both questionCategory AND questionaireId", async () => {
     const res = await request(app)
       .get("/api/questions")
-      .query({ questionCategory: "brief history", questionaireId: 3 })
+      .query({
+        questionCategory: "psychological information",
+        questionaireId: 4,
+      })
       .set("token", `Bearer ${user1Token}`);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty("questions");
-    expect(res.body.questions).toContainEqual(
-      {
-        id: 56,
-        questionaireId: 4,
-        question: "Full name and aliases?",
-        questionCategory: "brief history",
-      },
-      {
-        id: 46,
-        questionaireId: 3,
-        question: "What is your favorite word?",
-        questionCategory: "psychological information",
-      }
-    );
+    expect(res.body.questions).toContainEqual({
+      id: 112,
+      questionaireId: 4,
+      question: "favorite food:",
+      questionCategory: "psychological information",
+    });
+    expect(res.body.questions).not.toContainEqual({
+      id: 56,
+      questionaireId: 4,
+      question: "Full name and aliases?",
+      questionCategory: "brief history",
+    });
   });
 
   it("GET /questions, should return unauthorized status code to non-logged in user", async () => {
