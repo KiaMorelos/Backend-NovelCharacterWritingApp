@@ -75,6 +75,47 @@ describe("Character Route Tests", () => {
     expect(res2.statusCode).toEqual(200);
   });
 
+  it("GET /characters/character:id should give back character object", async () => {
+    const res = await request(app)
+      .get(`/api/characters/${userOneCharacter.id}`)
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty("character");
+    expect(res.body.character).toEqual({
+      id: userOneCharacter.id,
+      name: "TestCharacter",
+      characterPhotoUrl: "",
+      userId: user1.id,
+      createdAt: expect.any(String),
+      updatedAt: expect.any(String),
+    });
+  });
+
+  it("GET /characters/character:id/answers should return answers", async () => {
+    const res = await request(app)
+      .get(`/api/characters/${userOneCharacter.id}/answers`)
+      .set("token", `Bearer ${user1Token}`);
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty("answers");
+    expect(res.body.answers).toEqual([
+      {
+        id: expect.any(Number),
+        questionId: 3,
+        characterId: userOneCharacter.id,
+        answer: "Red",
+        createdAt: expect.any(String),
+        updatedAt: expect.any(String),
+        Question: {
+          question: "What is the trait you most deplore in yourself?",
+          questionCategory: "psychological information",
+          Questionaire: {
+            name: "Marcel Proust",
+          },
+        },
+      },
+    ]);
+  });
+
   it("POST /characters, should allow post requests with correct info for logged in users", async () => {
     const anotherCharacter = {
       name: "new character",

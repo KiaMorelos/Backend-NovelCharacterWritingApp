@@ -18,6 +18,18 @@ const updateAnswerSchema = require("../schemas/updateAnswerSchema.json");
 
 const answersController = {};
 
+answersController.getAllAnswers = async (req, res, next) => {
+  try {
+    let { characterId } = req.params;
+
+    const answers = await answerService.getAll(characterId);
+
+    return res.status(200).json({ answers });
+  } catch (error) {
+    return next(error);
+  }
+};
+
 answersController.createNewAnswers = async (req, res, next) => {
   try {
     let { userId } = res.locals.user;

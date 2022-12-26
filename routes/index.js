@@ -42,6 +42,12 @@ router.get(
   charactersController.getCharacterById
 );
 
+router.get(
+  "/characters/:characterId/answers",
+  mustBeLoggedIn,
+  answersController.getAllAnswers
+);
+
 router.get("/users/:userId", mustBeCorrectUser, usersController.getUserById);
 
 /** POST Routes

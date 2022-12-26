@@ -19,19 +19,6 @@ characterService.findCharacterById = async (characterId) => {
     where: {
       id: characterId,
     },
-    include: [
-      {
-        model: models.Answer,
-        attributes: ["id", "answer"],
-        include: [
-          {
-            model: models.Question,
-            attributes: ["question", "questionCategory"],
-            include: [{ model: models.Questionaire, attributes: ["name"] }],
-          },
-        ],
-      },
-    ],
   });
 };
 
