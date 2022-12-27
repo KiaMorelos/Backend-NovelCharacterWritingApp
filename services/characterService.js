@@ -15,6 +15,7 @@ characterService.getAll = async (userId) => {
 };
 
 characterService.findCharacterById = async (characterId) => {
+  if (isNaN(characterId)) throw new NotFoundError();
   return models.Character.findOne({
     where: {
       id: characterId,
@@ -40,6 +41,8 @@ characterService.updateCharacter = async ({
   name,
   characterPhotoUrl = "",
 }) => {
+  if (isNaN(characterId)) throw new NotFoundError();
+
   const updatedCharacter = models.Character.update(
     { name, characterPhotoUrl },
     {
@@ -53,6 +56,7 @@ characterService.updateCharacter = async ({
 };
 
 characterService.destroyCharacter = async (characterId, userId) => {
+  if (isNaN(characterId)) throw new NotFoundError();
   const destroyed = models.Character.destroy({
     where: {
       id: characterId,

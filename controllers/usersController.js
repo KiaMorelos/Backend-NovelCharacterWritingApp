@@ -39,7 +39,9 @@ usersController.authenticate = async (req, res, next) => {
     //validator expects username, and password in the request body
     const validator = jsonschema.validate(req.body, authenticateSchema);
     if (!validator.valid) {
-      throw new BadReqError("Invalid or missing fields");
+      throw new BadReqError(
+        "Invalid fields(password less than 8 characters) or missing fields"
+      );
     }
 
     const user = await userService.checkCredentials(req.body);

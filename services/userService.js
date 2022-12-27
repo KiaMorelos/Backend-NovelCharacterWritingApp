@@ -18,6 +18,10 @@ userService.newUser = async ({ username, email, password }) => {
 
 userService.checkCredentials = async ({ username, password }) => {
   const user = await models.User.findOne({ where: { username } });
+  if (!user)
+    throw new NotFoundError(
+      "It doesn't look like there's an account with the username you entered"
+    );
   const isCorrectPass = await bcrypt.compare(password, user.password);
 
   if (isCorrectPass) {

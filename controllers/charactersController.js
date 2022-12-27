@@ -33,7 +33,7 @@ charactersController.getCharacterById = async (req, res, next) => {
   try {
     let { characterId } = req.params;
     let { userId } = res.locals.user;
-
+    characterId = +characterId;
     const character = await characterService.findCharacterById(characterId);
 
     if (!character) throw new NotFoundError("This character does not exist");
