@@ -9,7 +9,7 @@
     "revert-migration": "npx sequelize-cli db:migrate:undo",
     "seed": "npx sequelize-cli db:seed:all",
     "undo-last-seed": "npx sequelize-cli db:seed:undo",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
     "pretest": "cross-env NODE_ENV=test npm run db:reset",
