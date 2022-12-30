@@ -1,6 +1,6 @@
 # The API / Backend for WritSandbox - AKA my Character/Novel Writing APP
 
-- This API is now deployed on heroku at and is best interacted with via something like Insomnia.
+- This API is now deployed on Heroku and is best interacted with via something like Insomnia.
 
 - The Front End Repo for this project can be found here: https://github.com/KiaMorelos/Captsone2_NovelCharacterWritingApp and is currently being tested but will be deployed soon.
 
@@ -146,7 +146,7 @@ Expects, at minimum a `name` in the body to create a new character, the `charact
 }
 ```
 
-A successful POST requests to `/characters` will return the created character object.
+A successful POST request to `/characters` will return the created character object.
 
 GET `/characters/:characterId`
 
