@@ -14,7 +14,7 @@ The API currently only contains questionaire and question data which has been so
 
 The Write Practice's
 post [Proust Questionnaire: 35 Questions To Ask Your Characters From
-Marcel Proust](https://web.archive.org/web/20121225100330/http://www.chick.net/proust/question.html), [Bernard Pivot, and James Lipton questionaires from the Deschutes Library](https://www.deschuteslibrary.org/files/uploads/Bernard%20Pivot%20and%20James%20Lipton%20Questionnaires.pdf), as well as a character analysis sheet from a great site called [MousePawMedia](https://mousepawmedia.com/downloads/writing/CharacterAnalysis.pdf).
+Marcel Proust](https://thewritepractice.com/proust-questionnaire/), [Bernard Pivot, and James Lipton questionaires from the Deschutes Library](https://www.deschuteslibrary.org/files/uploads/Bernard%20Pivot%20and%20James%20Lipton%20Questionnaires.pdf), as well as a character analysis sheet from a great site called [MousePawMedia](https://mousepawmedia.com/downloads/writing/CharacterAnalysis.pdf).
 
 # BASE URL
 
