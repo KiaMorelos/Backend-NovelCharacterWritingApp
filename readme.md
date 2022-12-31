@@ -273,3 +273,7 @@ Expects request body to contain a username, an email, correct existing password,
     "newPassword" : "BETTERpassword!!"
 }
 ```
+
+# Tests
+
+Test are in the tests folder and can be run with `npm test`
