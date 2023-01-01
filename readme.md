@@ -2,7 +2,7 @@
 
 - This API is now deployed on Heroku and is best interacted with via something like Insomnia.
 
-- The Front End Repo for this project can be found here: https://github.com/KiaMorelos/Captsone2_NovelCharacterWritingApp and is currently being tested but will be deployed soon.
+- The Front End Repo for this project can be found here: https://github.com/KiaMorelos/Captsone2_NovelCharacterWritingApp and is deployed on Surge. https://writbox.surge.sh/
 
 # Technologies
 
